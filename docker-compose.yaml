@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "80:80"
+        env_file: 
+            - .env
+        depends_on:
+            - qdrant
+        volumes:
+            - ./app:/app
+            - static-data:/vol/static
+            - media-data:/vol/media
+    qdrant:
+        image: qdrant/qdrant:v0.9.0
+        ports:
+            - "6333:6333"
+        volumes:
+            - qdrant-data:/storage
+
+volumes:
+    qdrant-data:
+    static-data:
+    media-data:

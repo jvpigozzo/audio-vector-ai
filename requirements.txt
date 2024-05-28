@@ -1,0 +1,10 @@
+uvicorn[standart]
+fastapi
+pydantic
+aiofiles
+python-multipart
+tiktoken==0.5.2
+langchain==0.1.9
+langchain-openai==0.0.7
+qdrant-client==0.9.0
+
